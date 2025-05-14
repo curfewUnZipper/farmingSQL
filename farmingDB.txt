@@ -1,0 +1,242 @@
+#Creating a database for farming
+
+
+#15 bigha = 1 hectare (100 msq)
+
+CREATING DATABASE
+1.	CREATE DATABASE agriculture;
+USE agriculture;
+
+CREATING TABLES
+2.	CREATE TABLE farmer (kisaanid INT(6) AUTO_INCREMENT,
+name VARCHAR(30),
+land DECIMAL(10,2),
+PRIMARY KEY (kisaanid));
+#prodid #toolid
+ALTER TABLE farmer AUTO_INCREMENT = 100001;
+
+3.	CREATE TABLE cropcoll (ccid INT(4) AUTO_INCREMENT,
+one INT(4),
+two INT(4),
+three INT(4),
+four INT(4),
+five INT(4),
+six INT(4),
+seven INT(4),
+eight INT(4),
+nine INT(4),
+ten INT(4),
+PRIMARY KEY (ccid));
+ALTER TABLE produce AUTO_INCREMENT = 1001;
+
+4.	CREATE TABLE crop (cropid INT(4) AUTO_INCREMENT,
+crop VARCHAR(50),
+season VARCHAR(50),
+PRIMARY KEY (cropid));
+ALTER TABLE crop AUTO_INCREMENT = 1001;
+
+5.	CREATE TABLE toolcoll (tcid INT(4) AUTO_INCREMENT,
+Description VARCHAR(50),
+one INT(4),
+two INT(4),
+three INT(4),
+four INT(4),
+five INT(4),
+six INT(4),
+seven INT(4),
+eight INT(4),
+nine INT(4),
+ten INT(4),
+eleven INT(4),
+twelveINT(4),
+thirteen INT(4),
+fourteen INT(4),
+fifteen INT(4),
+sixteen INT(4),
+seventeen INT(4),
+eighteen INT(4),
+nineteen INT(4),
+twenty INT(4),
+
+PRIMARY KEY (tcid));
+ALTER TABLE produce AUTO_INCREMENT = 1001;
+
+ CREATE TABLE tool (toolid INT(4) AUTO_INCREMENT,
+tool VARCHAR(50),
+PRIMARY KEY (toolid));
+ALTER TABLE tool AUTO_INCREMENT = 1001;
+
+
+------------------------------------------
+
+CONNECTING TABLES
+6.	ALTER TABLE farmer ADD cpid INT(4);
+ALTER TABLE farmer ADD tcid INT(4);
+
+7.	ALTER TABLE farmer ADD CONSTRAINT ccfk FOREIGN KEY farmer(ccid) REFERENCES cropcoll(ccid);
+ALTER TABLE farmer ADD CONSTRAINT tcfk FOREIGN KEY farmer(tcid) REFERENCES toolcoll(tcid);
+
+8.	ALTER TABLE produce ADD CONSTRAINT cropfk1 FOREIGN KEY produce(one) REFERENCES crop(cropid);
+ALTER TABLE produce ADD CONSTRAINT cropfk2 FOREIGN KEY produce(two) REFERENCES crop(cropid);
+ALTER TABLE produce ADD CONSTRAINT cropfk3 FOREIGN KEY produce(three) REFERENCES crop(cropid);
+ALTER TABLE produce ADD CONSTRAINT cropfk4 FOREIGN KEY produce(four) REFERENCES crop(cropid);
+ALTER TABLE produce ADD CONSTRAINT cropfk5 FOREIGN KEY produce(five) REFERENCES crop(cropid);
+ALTER TABLE produce ADD CONSTRAINT cropfk6 FOREIGN KEY produce(six) REFERENCES crop(cropid);
+ALTER TABLE produce ADD CONSTRAINT cropfk7 FOREIGN KEY produce(seven) REFERENCES crop(cropid);
+ALTER TABLE produce ADD CONSTRAINT cropfk8 FOREIGN KEY produce(eight) REFERENCES crop(cropid);
+ALTER TABLE produce ADD CONSTRAINT cropfk9 FOREIGN KEY produce(nine) REFERENCES crop(cropid);
+ALTER TABLE produce ADD CONSTRAINT cropfk10 FOREIGN KEY produce(ten) REFERENCES crop(cropid);
+
+9.	ALTER TABLE toolcoll ADD CONSTRAINT toolfk1 FOREIGN KEY toolcoll(one) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk2 FOREIGN KEY toolcoll(two) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk3 FOREIGN KEY toolcoll(three) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk4 FOREIGN KEY toolcoll(four) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk5 FOREIGN KEY toolcoll(five) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk6 FOREIGN KEY toolcoll(six) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk7 FOREIGN KEY toolcoll(seven) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk8 FOREIGN KEY toolcoll(eight) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk9 FOREIGN KEY toolcoll(nine) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk10 FOREIGN KEY toolcoll(ten) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk11 FOREIGN KEY toolcoll(two) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk12 FOREIGN KEY toolcoll(three) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk13 FOREIGN KEY toolcoll(four) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk14 FOREIGN KEY toolcoll(five) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk15 FOREIGN KEY toolcoll(six) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk16 FOREIGN KEY toolcoll(seven) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk17 FOREIGN KEY toolcoll(eight) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk18 FOREIGN KEY toolcoll(nine) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk19 FOREIGN KEY toolcoll(ten) REFERENCES tool(toolid);
+ALTER TABLE toolcoll ADD CONSTRAINT toolfk20 FOREIGN KEY toolcoll(ten) REFERENCES tool(toolid);
+10.	INSERT INTO tool (tool) VALUES (‘Hoe, Pickaxe, Trowel’), (‘PloughBull’), (‘Tubewell’), (‘Sprayers’), (‘Tractors’), (‘Roller’), (‘Land Leveller’), (‘Thresher’), (‘Combine Harvester’), (‘Harrow’), (‘Cultivator’), (‘Laser’), (‘Triller’)
+11.	
+
+
+TOOLS:
+(HOE, PICKAXE, TROWEL)
+PLOUGH BULL
+TUBEWELL
+SPRAYERS CHEMICAL FERTI, PESTI
+TRACTORS
+ROLLER
+LAND LEVELLER (after SOWING)
+THRESHERS
+COMBINE HARVESTER
+HARROW
+CULTIVATOR (CANE)
+LASER (CANE)
+TRILLER
+
+FARMER tools categories : primitive, small, large, commercial
+
+LAND AREA : LARGE FARMERS: 2+ to 10+ hectares 
+
+CROPS:
+
+KHARIF : -may/June - sep/oct
+Paddy,maize,bajra, pulse
+
+RABI: NOV – APR/MAY
+Wheat,barley,mustard,oat,
+peas(upto jan/feb), 
+mangoes,lichi,orange,guava, papaya vegeis(potato,radish,onion,carrot,cabbage,capsicum,brinjal)
+
+ZAID: MARCH – JUNE : Watermelon, muskmelon, vegetables (bittergourd,bottlegourd,ridgegourd,frenchbean, pumpkin,brinjal,chilli,ladyfingers,tomato ), turmeric, FODDER
+SUGARCANE is planted at this time and takes 12 months
+SUGARCANE planted in (FEB/OCT) and harvested accordingly (DEC/ AUG)
+
+PULSES (individual research on season) : arhar,urad,moong,masur,peas,gram
+
+
+Table farmer
+Kisaanid	name	land (hectares)	ccid	tcid
+				
+				
+
++----------+---------------+------+-----+---------+----------------+
+| Field    | Type          | Null | Key | Default | Extra          |
++----------+---------------+------+-----+---------+----------------+
+| kisaanid | int(6)        | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(30)   | YES  |     | NULL    |                |
+| land     | decimal(10,2) | YES  |     | NULL    |                |
+| ccid     | int(4)        | YES  | MUL | NULL    |                |
+| tcid     | int(4)        | YES  | MUL | NULL    |                |
++----------+---------------+------+-----+---------+----------------+
+TABLE cropcoll
+ccid	one	two	three	four	five	six	seven	eight	nine	ten
+										
+										
+
++-------+--------+------+-----+---------+----------------+
+| Field | Type   | Null | Key | Default | Extra          |
++-------+--------+------+-----+---------+----------------+
+| ccid  | int(4) | NO   | PRI | NULL    | auto_increment |
+| one   | int(4) | YES  | MUL | NULL    |                |
+| two   | int(4) | YES  | MUL | NULL    |                |
+| three | int(4) | YES  | MUL | NULL    |                |
+| four  | int(4) | YES  | MUL | NULL    |                |
+| five  | int(4) | YES  | MUL | NULL    |                |
+| six   | int(4) | YES  | MUL | NULL    |                |
+| seven | int(4) | YES  | MUL | NULL    |                |
+| eight | int(4) | YES  | MUL | NULL    |                |
+| nine  | int(4) | YES  | MUL | NULL    |                |
+| ten   | int(4) | YES  | MUL | NULL    |                |
++-------+--------+------+-----+---------+----------------+
+TABLE crop
+cropid	Crop	Bmth 	emth
+			
+			
+			
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| cropid | int(4)      | NO   | PRI | NULL    | auto_increment |
+| Crop   | varchar(50) | YES  |     | NULL    |                |
+| bmth   | varchar(9)  | YES  |     | NULL    |                |
+| emth   | varchar(9)  | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+TABLE toolcoll (upto twenty)
+tcid	one	two	three	four	five	six	seven	eight	nine	ten
+										
+										
+
++-----------+--------+------+-----+---------+----------------+
+| Field     | Type   | Null | Key | Default | Extra          |
++-----------+--------+------+-----+---------+----------------+
+| tcid      | int(4) | NO   | PRI | NULL    | auto_increment |
+| one       | int(4) | YES  | MUL | NULL    |                |
+| two       | int(4) | YES  | MUL | NULL    |                |
+| three     | int(4) | YES  | MUL | NULL    |                |
+| four      | int(4) | YES  | MUL | NULL    |                |
+| five      | int(4) | YES  | MUL | NULL    |                |
+| six       | int(4) | YES  | MUL | NULL    |                |
+| seven     | int(4) | YES  | MUL | NULL    |                |
+| eight     | int(4) | YES  | MUL | NULL    |                |
+| nine      | int(4) | YES  | MUL | NULL    |                |
+| ten       | int(4) | YES  | MUL | NULL    |                |
+| eleven    | int(4) | YES  | MUL | NULL    |                |
+| twelve    | int(4) | YES  | MUL | NULL    |                |
+| thirteen  | int(4) | YES  | MUL | NULL    |                |
+| fourteen  | int(4) | YES  | MUL | NULL    |                |
+| fifteen   | int(4) | YES  | MUL | NULL    |                |
+| sixteen   | int(4) | YES  | MUL | NULL    |                |
+| seventeen | int(4) | YES  | MUL | NULL    |                |
+| eighteen  | int(4) | YES  | MUL | NULL    |                |
+| nineteen  | int(4) | YES  | MUL | NULL    |                |
+| twenty    | int(4) | YES  | MUL | NULL    |                |
++-----------+--------+------+-----+---------+----------------+
+TABLE tool
+toolid	tool	cropid
+		
+		
+		
+
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| toolid | int(4)      | NO   | PRI | NULL    | auto_increment |
+| tool   | varchar(50) | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+farmer : cropcoll
+farmer : toolcoll
+cropcoll : crops
+toolcoll : toolcoll
